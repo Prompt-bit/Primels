@@ -1,0 +1,25 @@
+EnterCreation: # Manifest Command FUDING
+Reditt: # 76 by ers by got
+EnterName: # Command Stuff, Command Things
+EnterCreationServiceTargetLauncher: Launch
+CommandLauncher: false
+CommandReddit: true
+EnterCreation: # Manifest Command PUDING
+Reditt: # 79 by ers by got
+EnterName: # Command Stuff, Command Things
+EnterCreationServiceTargetLauncher: Launch
+CommandLauncher: true
+CommandReddit: false
+
+EnterCreation: # Manifest Command CREATION
+Reditt: # 799 by ers by got
+EnterName: # Command Stuff, Command Things
+EnterCreationServiceTargetLauncher: Launch
+CommandLauncher: true
+CommandReddit: true
+EnterCreation: # Manifest Command PUDING
+Reditt: # 79 by ers by got
+EnterName: # Command Stuff, Command Things
+EnterCreationServiceTargetLauncher: Launch
+CommandLauncher: false
+CommandReddit: false
