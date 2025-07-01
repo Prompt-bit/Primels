@@ -8,3 +8,6 @@ Primels Girl is for learners and educators.
 > You can use Primels Boy free.
 ---
 > But if you use Primels Pro Infinite you will get a lot more stuff.
+---
+Run:
+<code>python -m http.server 8000</code>
