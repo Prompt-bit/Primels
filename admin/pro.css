@@ -9,4 +9,24 @@
     cursor: pointer;
     content: "";
     font-display: block;
+    font-weight: 1000;
+    fill: calc(1px + 12rem);
+    flex-flow: nowrap;
+    direction: 90deg;
+}
+button:after {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+    color: red;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    transition: all 100s ease;
+    cursor: pointer;
+    content: "";
+    font-display: block;
+    font-weight: 1000;
+    fill: calc(1px + 12rem);
+    flex-flow: nowrap;
+    direction: 90deg;
 }
