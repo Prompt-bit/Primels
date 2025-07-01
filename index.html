@@ -1,136 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Learn to Code - Primels Boy</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f0f4ff;
-      margin: 0;
-      padding: 2rem;
-      color: #1e293b;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Code Editor with Highlighting & Autocomplete</title>
 
-    h1 {
-      text-align: center;
-      color: #3b82f6;
-      margin-bottom: 0.5rem;
-    }
+<!-- CodeMirror 6 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@codemirror/basic-setup@^0.20.0/theme-one-dark.css" />
 
-    h2 {
-      text-align: center;
-      color: #2563eb;
-      font-weight: normal;
-      margin-top: 0;
-      margin-bottom: 2rem;
-    }
-
-    ul {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem 2rem;
-      box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
-      list-style-type: decimal;
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
-
-    li {
-      margin-bottom: 1rem;
-    }
-
-    a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #64748b;
-    }
-
-    button {
-      display: block;
-      margin: 0 auto 2rem auto;
-      background-color: #2563eb;
-      border: none;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #1d4ed8;
-    }
-
-    #motivate {
-      text-align: center;
-      font-size: 1.2rem;
-      color: #2563eb;
-      margin-bottom: 2rem;
-      font-style: italic;
-      min-height: 2em;
-    }
-  </style>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 700px;
+    margin: 2rem auto;
+    background: #f9fafb;
+    padding: 1rem;
+    color: #1f2937;
+  }
+  h1 {
+    color: #2563eb;
+    text-align: center;
+  }
+  #editor {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    height: 300px;
+    font-size: 1rem;
+  }
+  button {
+    margin-top: 1rem;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  button:hover {
+    background-color: #1d4ed8;
+  }
+  #output {
+    margin-top: 1rem;
+    background: #e0e7ff;
+    padding: 1rem;
+    border-radius: 6px;
+    min-height: 50px;
+    white-space: pre-wrap;
+  }
+</style>
 </head>
 <body>
 
-  <h1>Learn to Code</h1>
-  <h2>Your journey starts here!</h2>
+<h1>Write your JavaScript code</h1>
 
-  <div id="motivate">“Click the button for some coding motivation!”</div>
-  <button id="motivationBtn">Inspire Me!</button>
+<div id="editor"></div>
 
-  <ul>
-    <li><strong>Choose a language:</strong> Start with beginner-friendly languages like <a href="https://www.python.org/" target="_blank">Python</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">JavaScript</a>.</li>
-    <li><strong>Practice regularly:</strong> Code every day, even if it’s just a little bit.</li>
-    <li><strong>Build projects:</strong> Create simple websites, games, or tools to apply your skills.</li>
-    <li><strong>Use online resources:</strong> Websites like <a href="https://freecodecamp.org" target="_blank">freeCodeCamp</a>, <a href="https://codecademy.com" target="_blank">Codecademy</a>, and <a href="https://leetcode.com" target="_blank">LeetCode</a> are fantastic.</li>
-    <li><strong>Join communities:</strong> Connect with other learners on <a href="https://stackoverflow.com" target="_blank">Stack Overflow</a> or <a href="https://discord.gg/coding" target="_blank">Discord coding servers</a>.</li>
-  </ul>
+<button id="runBtn">Run Code</button>
 
-  <footer>
-    &copy; 2025 Primels Boy. Happy coding! 🚀
-  </footer>
+<div id="output"></div>
 
-  <script>
-    const motivations = [
-      "Keep calm and code on! 💻",
-      "Every bug is a step toward mastery. 🐞",
-      "Code is like humor. When you have to explain it, it’s bad. 😄",
-      "Debugging: Being the detective in a crime movie where you are also the murderer. 🕵️‍♂️",
-      "Talk is cheap. Show me the code. – Linus Torvalds",
-      "The best way to learn to code is by coding!",
-      "Don’t stop until you’re proud.",
-      "Dream it. Code it. Ship it.",
-      "Write code that changes the world.",
-      "The only way to learn a new programming language is by writing programs in it."
-    ];
+<!-- Load CodeMirror 6 from CDN -->
+<script type="module">
+  import {EditorView, basicSetup} from "https://cdn.jsdelivr.net/npm/@codemirror/basic-setup@0.20.2/dist/index.js";
+  import {javascript} from "https://cdn.jsdelivr.net/npm/@codemirror/lang-javascript@0.19.4/dist/index.js";
+  import {oneDark} from "https://cdn.jsdelivr.net/npm/@codemirror/theme-one-dark@0.19.5/dist/index.js";
 
-    const motivateEl = document.getElementById('motivate');
-    const btn = document.getElementById('motivationBtn');
+  const output = document.getElementById("output");
 
-    btn.addEventListener('click', () => {
-      const index = Math.floor(Math.random() * motivations.length);
-      motivateEl.textContent = motivations[index];
-    });
-  </script>
+  const editor = new EditorView({
+    doc: `// Write a function to return square of a number
+function square(n) {
+  return n * n;
+}`,
+    extensions: [basicSetup, javascript(), oneDark],
+    parent: document.getElementById("editor"),
+  });
+
+  document.getElementById("runBtn").onclick = () => {
+    try {
+      // Evaluate code and capture result of last expression or function output
+      let code = editor.state.doc.toString();
+      let result = eval(code);
+      output.textContent = "Result:\n" + result;
+    } catch (e) {
+      output.textContent = "Error:\n" + e.message;
+    }
+  };
+</script>
 
 </body>
 </html>
