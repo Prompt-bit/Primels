@@ -1,0 +1,56 @@
+[
+    {
+        "comment": "This is a JSON file that shows stuff used by Primels"
+    },
+
+    [
+        {
+            "name": "KLCD",
+            "version": "1.0.0",
+            "description": "Korean Language Code Dictionary",
+            "author": "OpenAI",
+            "license": "MIT",
+            "keywords": ["Korean", "language", "dictionary", "code"],
+            "repository": {
+                "type": "git",
+                "url": "main.py"
+            },
+            "dependencies": {
+                "requests": "^2.25.1",
+                "pandas": "^1.2.3"
+            },
+            "scripts": {
+                "start": "python main.py",
+                "test": "pytest tests/"
+            },
+            "bugs": {
+                "url": "main.py"
+            }
+        },
+        {
+            "name": "Protection Services",
+            "version": "1.0.0",
+            "description": "Use for Primels Sam",
+            "author": "OpenAI",
+            "license": "MIT",
+            "keywords": ["protection", "services", "data"],
+            "repository": {
+                "type": "git",
+                "url": "main.py"
+            },
+            "dependencies": {
+                "flask": "^1.1.2",
+                "sqlalchemy": "^1.3.23"
+            },
+            "scripts": {
+                "start": "python main.py",
+                "test": "pytest tests/"
+            },
+            "bugs": {
+                "url": "main.py"
+            }
+        },
+
+        ["End of file"]
+    ]
+]
