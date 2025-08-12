@@ -1,10 +1,24 @@
 # Primels
-A program to help you with coding.
-If you are a developer you may use Primels Boy.
-## Primels Boy
-Primels Boy is for developers.
-## Primels Girl
-Primels Girl is for learners and educators.
-> You can use Primels Boy free.
+
+Primels is a software company that helps you with your PC. For example if you write code then you have **Primels Code** and if you want to stay protected we have **Primels Sam** one the tide.
+
 ---
-> But if you use Primels Pro Infinite you will get a lot more stuff.
+
+## Primels Boy
+
+Code games!
+
+example
+
+```asde
+ram.goten = "game.run"
+ase.mean {runtime}-[variable] = "game"
+build.runtime("GAME BUILD")
+main.runtime.;(build);
+```
+
+## Primels Girl
+
+> get pro more apps 👑
+
+## . . .

@@ -1,0 +1,2 @@
+# Primels Sam Overview
+As we learn't in the README Primels Sam is for protecting your PC or IPad or whatever you use. An if you pay for Pro, you will get a help from a copilot and SUPER Protection to help your PC survive threats.
